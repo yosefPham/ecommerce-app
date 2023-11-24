@@ -26,5 +26,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     }
-  }
+  },
+  "name": "E-commerce",
+  "displayName": "E-commerce"
 }
