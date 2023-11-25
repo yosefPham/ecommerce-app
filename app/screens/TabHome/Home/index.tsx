@@ -5,7 +5,6 @@ import R from '../../../assets/R';
 import { Header } from '../../../components/Headers/Header';
 import ItemProduct from '../../../components/Item/ItemProduct';
 import { formatCurrency, getFont, getWidth, HEIGHT, WIDTH } from '../../../configs/functions';
-import { navigate } from '../../../navigation/navigation-service';
 import ScreenName from '../../../navigation/screen-name';
 
 import styles from './styles';
@@ -52,7 +51,6 @@ const Home = ({ navigation }: any) => {
   const hours = Math.floor(timeRemaining / 3600);
   const minutes = Math.floor((timeRemaining % 3600) / 60);
   const seconds = timeRemaining % 60;
-
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: HEIGHT(100) }}>
       <Header 

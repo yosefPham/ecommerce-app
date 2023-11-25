@@ -1,4 +1,8 @@
 export enum E_TYPE_INPUT {
-  BORDER = "BORDER",
+  BORDER = "border",
 }
   
+export enum E_TYPE_BUTTON {
+  PRIMARY = "primary",
+  OUTLINE = "outline",
+}

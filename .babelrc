@@ -2,12 +2,12 @@
     "presets": ["@babel/preset-env"],
     "plugins": [
       ["module-resolver", {
-        "root": ["./app"],
-        "alias": {
-          "@components": "./app/components",
-          "@navigation": "./app/navigation",
-          "@types": "./app/types"
-        }
+        // "root": ["./app"],
+        // "alias": {
+        //   "@components": "./app/components",
+        //   "@navigation": "./app/navigation",
+        //   "@types": "./app/types"
+        // }
       }]
     ]
   }

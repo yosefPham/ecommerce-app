@@ -17,7 +17,7 @@ const ROOT: ViewStyle = {
   alignItems: "center",
   // paddingTop: HEIGHT(5),
   // paddingBottom: HEIGHT(5),
-  justifyContent: "flex-start",
+  // justifyContent: "flex-start",
 }
 const TITLE: TextStyle = { textAlign: "center" }
 const TITLE_MIDDLE: ViewStyle = { flex: 1, justifyContent: "center" }
@@ -25,6 +25,7 @@ const LEFT: ViewStyle = { width: 32 }
 const RIGHT: ViewStyle = { width: 0 }
 const NO_SEARCH: ViewStyle = {justifyContent: 'flex-end', paddingRight: WIDTH(15)}
 const BG_COLOR: ViewStyle = {backgroundColor: R.colors.primary}
+const HEADER_TEXT: ViewStyle = {backgroundColor: R.colors.white, justifyContent: 'flex-start', paddingLeft: WIDTH(10)}
 export function Header(props: HeaderProps) {
   const {
     onBack,
@@ -48,12 +49,18 @@ export function Header(props: HeaderProps) {
   } = props
   const navigation = useNavigation();
   return (
-    <View style={[{ ...ROOT, ...style}, styles.container, isSearch === false && {...NO_SEARCH, ...BG_COLOR}]}>
+    <View style={[
+      styles.container, 
+      isSearch === false && {...NO_SEARCH, ...BG_COLOR}, 
+      !!headerText && HEADER_TEXT, 
+      { ...ROOT, ...style}]
+    }>
       {isBack && 
         <TouchableOpacity onPress={() => onBack ? onBack() : navigation.goBack() }>
           <Icon name={"arrow-back-outline"} size={WIDTH(25)} color={R.colors.primary} />
         </TouchableOpacity>
       }
+      {headerText && <Text style={styles.headerText}>{headerText}</Text>}
       {isSearch !== false && <SearchBar isFocusInput={isFocusInput} value={searchText ?? ""} onPressInputSearch={onPressInputSearch} type={typeInput}/>}
       {isIconCart ? (
         <TouchableOpacity style={styles.iconRight} onPress={onCartPress}>
@@ -114,5 +121,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginLeft: WIDTH(10),
     alignItems: "center",
+  },
+  headerText: {
+    fontSize: getFont(20),
+    marginLeft: WIDTH(5)
   }
 })
